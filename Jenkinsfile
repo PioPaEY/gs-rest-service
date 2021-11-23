@@ -1,5 +1,7 @@
 pipeline {
-	agent none
+	agent {
+	    label 'jmeterslave'
+	}
 
 	triggers {
 		pollSCM 'H/10 * * * *'
