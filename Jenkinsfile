@@ -1,7 +1,5 @@
 pipeline {
-	agent {
-	    label 'jmeterslave'
-	}
+	agent none
 
 	triggers {
 		pollSCM 'H/10 * * * *'
@@ -13,11 +11,9 @@ pipeline {
 	}
 
 	stages {
-		stage("test: baseline (jdk8)") {
+		stage("test: baseline (jdk11)") {
 			agent {
-				docker {
-					image 'adoptopenjdk/openjdk8:latest'
-					args '-v $HOME/.m2:/tmp/jenkins-home/.m2'
+				label 'testslave'
 				}
 			}
 			options { timeout(time: 30, unit: 'MINUTES') }
