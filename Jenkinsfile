@@ -14,7 +14,6 @@ pipeline {
 		stage("test: baseline (jdk11)") {
 			agent {
 				label 'testslave'
-				}
 			}
 			options { timeout(time: 30, unit: 'MINUTES') }
 			steps {
