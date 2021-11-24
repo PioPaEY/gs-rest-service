@@ -1,9 +1,11 @@
 pipeline {
-    agent any
+    agent {
+        label 'testslave'
+    }
     stages {
         stage('Build') {
             steps {
-                echo 'Build'
+                sh 'cd complete && mvn spring-boot:run'
             }
         }
         stage('Test'){
