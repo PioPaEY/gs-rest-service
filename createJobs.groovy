@@ -19,9 +19,5 @@ pipelineJob('SPRING Application Builder') {
             }
             lightweight()
         }
-        cps {
-            script(readFileFromWorkspace('pipelineJob.groovy'))
-            sandbox()
-        }
     }
 }
