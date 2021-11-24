@@ -6,7 +6,7 @@
 //        }
 //    }
 //}
-pipelineJob('job-dsl-plugin') {
+pipelineJob('SPRING Application Builder') {
     definition {
         cpsScm {
             scm {
@@ -18,6 +18,10 @@ pipelineJob('job-dsl-plugin') {
                 }
             }
             lightweight()
+        }
+        cps {
+            script(readFileFromWorkspace('pipelineJob.groovy'))
+            sandbox()
         }
     }
 }
