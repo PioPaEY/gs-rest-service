@@ -1,8 +1,23 @@
-pipelineJob('pipelineJob') {
+//pipelineJob('pipelineJob') {
+//    definition {
+//        cps {
+//            script(readFileFromWorkspace('pipelineJob.groovy'))
+//            sandbox()
+//        }
+//    }
+//}
+pipelineJob('job-dsl-plugin') {
     definition {
-        cps {
-            script(readFileFromWorkspace('pipelineJob.groovy'))
-            sandbox()
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        url('https://github.com/PioPaEY/gs-rest-service.git')
+                    }
+                    branch('*/main')
+                }
+            }
+            lightweight()
         }
     }
 }
