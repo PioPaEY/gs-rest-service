@@ -6,7 +6,7 @@ pipeline {
 
         stage('SCM') {
             steps {
-                checkout scm
+                sh "git clone https://github.com/PioPaEY/gs-rest-service.git"
             }
         }
 
