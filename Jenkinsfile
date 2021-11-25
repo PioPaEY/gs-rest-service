@@ -3,17 +3,14 @@ pipeline {
         label 'testslave'
     }
     stages {
-
         stage('SCM') {
             steps {
                 sh "git clone https://github.com/PioPaEY/gs-rest-service.git"
             }
         }
-
         stage('Build') {
             steps {
                 sh 'cd gs-rest-service/complete && mvn clean compile'
-
             }
         }
         stage('Unitary tests'){
@@ -24,38 +21,36 @@ pipeline {
         stage('Quality check'){
             steps {
                 echo 'Placeholder for Quality check'
-
                 sh 'cd gs-rest-service/complete && mvn verify'
             }
         }
-         stage('Package'){
-                    steps {
-                        echo 'Placeholder for Package'
-//                          sh 'cd gs-rest-service/complete'
-                        sh 'cd gs-rest-service/complete && mvn package'
-                    }
-                }
-          stage('Deploy'){
-                     steps {
-                         echo 'Deploy Application to TOMCAT folder'
-                         sh 'cp gs-rest-service/complete/target/*.war /deploy'
-                     }
-                 }
-          stage('Run Tests'){
-              parallel {
-                    stage('Integration tests') {
-                        steps {
-                            echo 'Placeholder for Integration tests'
-                        }
-                    }
-               stage('Functional tests'){
-                                                                    steps {
-                                                                        echo 'Placeholder for Functional tests'
-                                                                    }
-                                                                }
+        stage('Package'){
+            steps {
+                echo 'Placeholder for Package'
+                sh 'cd gs-rest-service/complete && mvn package'
+            }
+        }
+        stage('Deploy'){
+            steps {
+                echo 'Deploy Application to TOMCAT folder'
+                sh 'cp gs-rest-service/complete/target/*.war /deploy'
+            }
+        }
+        stage('Run Tests'){
+            parallel {
+                   stage('Integration tests') {
+                       steps {
+                           echo 'Placeholder for Integration tests'
+                       }
+                   }
+                   stage('Functional tests'){
+                       steps {
+                           echo 'Placeholder for Functional tests'
+                       }
+                   }
 
-              }
-
+            }
+        }
 
 
 stage('Load tests'){
