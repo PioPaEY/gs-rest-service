@@ -51,13 +51,11 @@ pipeline {
 
             }
         }
-
-
-stage('Load tests'){
-  steps {
-  echo 'Placeholder for Load tests'
-                  }
-  }
+        stage('Load tests'){
+            steps {
+                echo 'Placeholder for Load tests'
+            }
+        }
     }
 }
 
