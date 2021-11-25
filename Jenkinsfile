@@ -37,26 +37,32 @@ pipeline {
                 }
           stage('Deploy'){
                      steps {
-                         echo 'Placeholder for Deploy'
+                         echo 'Deploy Application to TOMCAT folder'
                          sh 'cp gs-rest-service/complete/target/*.war /deploy'
-//                          sh 'cd gs-rest-service/complete/target && nohup java -jar rest-service-complete-0.0.1-SNAPSHOT.jar &'
                      }
                  }
-                  stage('Integration tests'){
-                             steps {
-                                 echo 'Placeholder for Integration tests'
-                             }
-                         }
-                            stage('Functional tests'){
-                                                      steps {
-                                                          echo 'Placeholder for Functional tests'
-                                                      }
-                                                  }
-                                                     stage('Load tests'){
-                                                                               steps {
-                                                                                   echo 'Placeholder for Load tests'
-                                                                               }
-                                                                           }
+          stage('Run Tests'){
+              parallel {
+                    stage('Integration tests') {
+                        steps {
+                            echo 'Placeholder for Integration tests'
+                        }
+                    }
+               stage('Functional tests'){
+                                                                    steps {
+                                                                        echo 'Placeholder for Functional tests'
+                                                                    }
+                                                                }
+
+              }
+
+
+
+stage('Load tests'){
+  steps {
+  echo 'Placeholder for Load tests'
+                  }
+  }
     }
 }
 
