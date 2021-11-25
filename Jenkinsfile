@@ -12,27 +12,31 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'cd gs-rest-service/complete && mvn spring-boot:run &'
+                sh 'cd gs-rest-service/complete && mvn clean compile'
+
             }
         }
         stage('Unitary tests'){
             steps {
-                echo 'Placeholder for Unitary tests'
+                echo 'mvn test'
             }
         }
         stage('Quality check'){
             steps {
                 echo 'Placeholder for Quality check'
+                sh 'mvn verify'
             }
         }
          stage('Package'){
                     steps {
                         echo 'Placeholder for Package'
+                        sh 'mvn package'
                     }
                 }
           stage('Deploy'){
                      steps {
                          echo 'Placeholder for Deploy'
+                         sh 'cd target && nohup java -jar rest-service-complete-0.0.1-SNAPSHOT.jar &'
                      }
                  }
                   stage('Integration tests'){
