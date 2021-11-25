@@ -38,7 +38,7 @@ pipeline {
           stage('Deploy'){
                      steps {
                          echo 'Placeholder for Deploy'
-                         sh 'mv gs-rest-service/complete/target/*.war /deploy'
+                         sh 'cp gs-rest-service/complete/target/*.war /deploy'
 //                          sh 'cd gs-rest-service/complete/target && nohup java -jar rest-service-complete-0.0.1-SNAPSHOT.jar &'
                      }
                  }
