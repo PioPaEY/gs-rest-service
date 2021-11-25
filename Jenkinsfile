@@ -18,28 +18,28 @@ pipeline {
         }
         stage('Unitary tests'){
             steps {
-                echo 'cd gs-rest-service/complete && mvn test'
+                sh 'cd gs-rest-service/complete && mvn test'
             }
         }
         stage('Quality check'){
             steps {
                 echo 'Placeholder for Quality check'
-                sh 'cd gs-rest-service/complete'
-                sh 'mvn verify'
+
+                sh 'cd gs-rest-service/complete && mvn verify'
             }
         }
          stage('Package'){
                     steps {
                         echo 'Placeholder for Package'
-                         sh 'cd gs-rest-service/complete'
-                        sh 'mvn package'
+//                          sh 'cd gs-rest-service/complete'
+                        sh 'cd gs-rest-service/complete && mvn package'
                     }
                 }
           stage('Deploy'){
                      steps {
                          echo 'Placeholder for Deploy'
-                          sh 'cd gs-rest-service/complete/target'
-                         sh 'nohup java -jar rest-service-complete-0.0.1-SNAPSHOT.jar &'
+
+                         sh 'cd gs-rest-service/complete/target && nohup java -jar rest-service-complete-0.0.1-SNAPSHOT.jar &'
                      }
                  }
                   stage('Integration tests'){
