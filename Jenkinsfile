@@ -38,8 +38,8 @@ pipeline {
           stage('Deploy'){
                      steps {
                          echo 'Placeholder for Deploy'
-
-                         sh 'cd gs-rest-service/complete/target && nohup java -jar rest-service-complete-0.0.1-SNAPSHOT.jar &'
+                         sh 'mv gs-rest-service/complete/target/*.war /deploy'
+//                          sh 'cd gs-rest-service/complete/target && nohup java -jar rest-service-complete-0.0.1-SNAPSHOT.jar &'
                      }
                  }
                   stage('Integration tests'){
