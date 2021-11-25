@@ -12,7 +12,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'cd gs-rest-service/complete && mvn spring-boot:run'
+                sh 'cd gs-rest-service/complete && mvn spring-boot:run &'
             }
         }
         stage('Unitary tests'){
