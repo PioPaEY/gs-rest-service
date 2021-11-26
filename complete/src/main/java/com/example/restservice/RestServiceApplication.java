@@ -9,21 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @SpringBootApplication
-@RestController
-public class RestServiceApplication extends SpringBootServletInitializer {
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(RestServiceApplication.class);
-    }
+public class RestServiceApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(RestServiceApplication.class, args);
     }
 
-    @RequestMapping(value = "/")
-    public String hello() {
-        return "Spring Boot application for show how to switch left performance tests";
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(RestServiceApplication.class);
     }
 
 }
