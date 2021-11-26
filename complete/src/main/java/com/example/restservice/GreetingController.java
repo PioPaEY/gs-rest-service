@@ -13,11 +13,6 @@ public class GreetingController {
 	private static final String template = "Hello, %s!";
 	private final AtomicLong counter = new AtomicLong();
 
-	@RequestMapping(value = "/")
-	public String hello() {
-		return "Spring Boot application for show how to switch left performance tests";
-	}
-
 	@GetMapping("/greeting")
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 		try {
