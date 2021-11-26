@@ -29,7 +29,7 @@ pipeline {
         stage('Package'){
             steps {
                 echo 'Putting application into WAR file.'
-                sh 'cd gs-rest-service/complete && mvn package'
+                sh 'cd gs-rest-service/complete && mvn clean package'
             }
         }
         stage('Deploy'){
