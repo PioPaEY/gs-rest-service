@@ -10,23 +10,25 @@ pipeline {
         }
         stage('Build') {
             steps {
+                echo 'Performing build of application. Compiling stuff and etc...'
                 sh 'cd gs-rest-service/complete && mvn clean compile'
             }
         }
         stage('Unitary tests'){
             steps {
+                echo 'Doing all necessary unit tests.'
                 sh 'cd gs-rest-service/complete && mvn test'
             }
         }
         stage('Quality check'){
             steps {
-                echo 'Placeholder for Quality check'
+                echo 'Quality checks of built application.'
                 sh 'cd gs-rest-service/complete && mvn verify'
             }
         }
         stage('Package'){
             steps {
-                echo 'Placeholder for Package'
+                echo 'Putting application into WAR file.'
                 sh 'cd gs-rest-service/complete && mvn package'
             }
         }
@@ -40,12 +42,12 @@ pipeline {
             parallel {
                    stage('Integration tests') {
                        steps {
-                           echo 'Placeholder for Integration tests'
+                           echo 'Some Integration tests happening here.'
                        }
                    }
                    stage('Functional tests'){
                        steps {
-                           echo 'Placeholder for Functional tests'
+                           echo 'Some Functional tests happening here.'
                        }
                    }
 
