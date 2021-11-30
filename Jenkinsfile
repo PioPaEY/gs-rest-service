@@ -50,7 +50,6 @@ pipeline {
                            echo 'Some Functional tests happening here.'
                        }
                    }
-
             }
         }
         stage('Load tests'){
