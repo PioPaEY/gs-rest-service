@@ -55,7 +55,8 @@ pipeline {
         }
         stage('Load tests'){
             steps {
-                echo 'Placeholder for Load tests'
+                echo 'Load test'
+                build job: 'Load Test'
             }
         }
     }
