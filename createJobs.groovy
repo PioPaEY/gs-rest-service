@@ -10,6 +10,9 @@ pipelineJob('SPRING Application Builder') {
     logRotator {
         numToKeep(3)
     }
+    triggers {
+        scm('H/2 * * * *')
+    }
     definition {
         cpsScm {
             scm {
