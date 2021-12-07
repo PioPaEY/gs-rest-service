@@ -7,6 +7,9 @@
 //    }
 //}
 pipelineJob('SPRING Application Builder') {
+    logRotator {
+        numToKeep(3)
+    }
     definition {
         cpsScm {
             scm {
