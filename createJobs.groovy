@@ -27,3 +27,24 @@ pipelineJob('SPRING Application Builder') {
         }
     }
 }
+pipelineJob('Test Second Job') {
+    logRotator {
+        numToKeep(3)
+    }
+    triggers {
+        scm('H/2 * * * *')
+    }
+    definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        url('https://github.com/PioPaEY/gs-rest-service.git')
+                    }
+                    branch('*/main')
+                }
+            }
+            lightweight()
+        }
+    }
+}
