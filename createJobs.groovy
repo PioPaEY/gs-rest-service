@@ -27,19 +27,19 @@ pipelineJob('SPRING Application Builder') {
         }
     }
 }
-pipelineJob('Test Second Job') {
+pipelineJob('Load Test') {
     logRotator {
         numToKeep(3)
     }
-    triggers {
-        scm('H/2 * * * *')
+    properties {
+        githubProjectUrl('https://github.com/PioPaEY/SimplePerfTest/')
     }
     definition {
         cpsScm {
             scm {
                 git {
                     remote {
-                        url('https://github.com/PioPaEY/gs-rest-service.git')
+                        url('https://github.com/PioPaEY/SimplePerfTest.git')
                     }
                     branch('*/main')
                 }
