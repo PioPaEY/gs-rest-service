@@ -21,7 +21,7 @@ public class GreetingController {
 	@GetMapping("/greeting")
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 		try {
-			int secondsToSleep = 12;
+			int secondsToSleep = 4 ;
 			Thread.sleep(secondsToSleep * 1000);
 		} catch (InterruptedException ie) {
 			Thread.currentThread().interrupt();
