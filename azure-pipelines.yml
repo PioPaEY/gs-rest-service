@@ -6,8 +6,8 @@
 trigger:
 - main
 
-pool:
-  vmImage: ARM
+pool: ARM
+  
 
 steps:
 - task: Maven@3
