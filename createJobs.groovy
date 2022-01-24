@@ -1,11 +1,3 @@
-//pipelineJob('pipelineJob') {
-//    definition {
-//        cps {
-//            script(readFileFromWorkspace('pipelineJob.groovy'))
-//            sandbox()
-//        }
-//    }
-//}
 pipelineJob('SPRING Application Builder') {
     logRotator {
         numToKeep(3)
