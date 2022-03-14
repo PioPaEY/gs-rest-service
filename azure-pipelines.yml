@@ -31,9 +31,3 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'warfile'
     publishLocation: 'Container'
-- task: srlTest@0
-  inputs:
-    serverEndpoint: 'LRSaaS'
-    tenantid: '294475337'
-    projectid: '1'
-    testid: '975'
